@@ -1,5 +1,3 @@
-package FinalProject.FPGit.TicTacToe.TicTacToe.src;
-
 public class Welcome {
 
     public void welcome() {

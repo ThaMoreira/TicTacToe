@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Welcome welcome = new Welcome();
-
+        Game game = new Game();
 
         welcome.welcome();
         System.out.println("Do you wanna to hear the rules? (y/n)");
@@ -13,6 +13,6 @@ public class Main {
             welcome.rules();
         }
         System.out.println("Let's play!! ");
-
+        game.execute();
     }
 }
