@@ -2,17 +2,25 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Welcome welcome = new Welcome();
-        Game game = new Game();
+        Scanner input = new Scanner(System.in);
 
-        welcome.welcome();
-        System.out.println("Do you wanna to hear the rules? (y/n)");
-        String answer = sc.nextLine();
-        if (answer.equalsIgnoreCase("y")) {
-            welcome.rules();
-        }
-        System.out.println("Let's play!! ");
-        game.execute();
+        char[][] board = new char[3][3];
+
+        System.out.println("*** Welcome to Tic Tac Toe Game ***\n\n"
+                + "Do you wanna to hear the rules? (y/n)");
+        String rules = input.nextLine();
+        if (rules.equalsIgnoreCase("y"))
+            Game.helpGame();
+        System.out.println("\nLet's play!! ");
+
+        Players player1 = new Players();
+        player1.name = player1.setPlayer(1);
+        player1.symb = player1.setSymbol(1);
+
+        Players player2 = new Players();
+        player2.name = player2.setPlayer(2);
+        player2.symb = player2.setSymbol(2);
+
+
     }
 }
