@@ -1,21 +1,25 @@
+import java.util.Scanner;
 
 public class Players {
-    private String player1, player2;
+    String name, player1,player2;
+    char symb;
+    int points = 0;
 
-    public String getPlayer1(){
-        return player1;
-    }
-
-    public void setPlayer1(String player1){
-        this.player1 = player1;
-    }
-
-    public String getPlayer2(){
+    public String setPlayer(int i) {
+        Scanner input = new Scanner(System.in);
+        if(i==1) {
+            System.out.printf("\nEnter the name of the %dº player: ", i);
+            player1 = input.nextLine();
+            return player1;
+        }
+        System.out.printf("\nEnter the name of the %dº player: ", i);
+        player2 = input.nextLine();
         return player2;
     }
-
-    public void setPlayer2(String player2){
-        this.player2 = player2;
+    public Character setSymbol(int i){
+        if(i==1){
+            return 'O';
+        }
+        return 'X';
     }
-
 }
