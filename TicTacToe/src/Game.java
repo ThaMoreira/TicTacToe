@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Game {
@@ -17,10 +16,11 @@ public class Game {
     }
     public static int getShot(char [][] board, Players player, int over) {
         Scanner input = new Scanner(System.in);
-        System.out.println(player.name + " it's your turn to play (" + player.simb + "): ");
+        System.out.println(player.name + " it's your turn to play you are the " + player.symb + ": ");
+        System.out.println("Type the line first and then the column:" );
         String shot = input.nextLine();
         if (shot.length() != 2) {
-            System.err.println("Enter two numbers!! Try again...\n");
+            System.err.println("Enter two numbers without any space!! Try again...\n");
             getShot(board, player, over);
         } else {
             int row = shot.charAt(0) - '0';
@@ -29,10 +29,10 @@ public class Game {
                 System.err.println("Invalid move!! Try again...\n");
                 getShot(board, player, over);
             } else if (board[row][column] != ' ') {
-                System.err.println("The square is already filled!! Try again...\n");
+                System.err.println("This space is already filled!! Try again...\n");
                 getShot(board, player, over);
             } else {
-                board[row][column] = player.simb;
+                board[row][column] = player.symb;
                 Board.showBoard(board);
                 over = winGame(board, player, over);
             }
@@ -65,8 +65,11 @@ public class Game {
         System.out.println("\n\nPlay again? (y/n)");
         String again = input.nextLine();
         if (again.equalsIgnoreCase("y")) {
-            Board.initBoard(board);
-            FinalProject.Game.playGame(board, player1, player2);
+            Board.clearBoard(board);
+            Game.playGame(board, player1, player2);
+        }else {
+            System.out.printf("Final score: %s %d x %s %d",
+                    player1.name, player1.points, player2.name, player2.points);
         }
     }
 
