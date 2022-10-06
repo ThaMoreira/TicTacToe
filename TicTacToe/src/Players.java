@@ -7,7 +7,7 @@ public class Players {
 
     public String setPlayer(int i) {
         Scanner input = new Scanner(System.in);
-        if(i==1) {
+        if(i == 1) {
             System.out.printf("\nEnter the name of the %dº player: ", i);
             player1 = input.nextLine();
             return player1;
@@ -17,7 +17,7 @@ public class Players {
         return player2;
     }
     public Character setSymbol(int i){
-        if(i==1){
+        if(i == 1) {
             return 'O';
         }
         return 'X';
